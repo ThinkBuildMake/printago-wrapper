@@ -1,0 +1,17 @@
+name = "printago-wrapper"
+main = "src/worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Defaults; override in environments or via dashboard/secrets
+PRINTAGO_BASE_URL = "https://api.printago.io"
+WRAPPER_USERNAME = "client"
+ALLOWED_ENDPOINTS = "POST /v1/storage/signed-upload-urls,POST /v1/parts,POST /v1/builds"
+
+# Secrets to set via `wrangler secret put`
+# PRINTAGO_API_KEY
+# STORE_ID
+# WRAPPER_PASSWORD
+
+[observability]
+enabled = true
