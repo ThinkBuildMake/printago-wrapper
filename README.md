@@ -29,36 +29,13 @@ POST /v1/storage/signed-upload-urls,POST /v1/parts,POST /v1/builds
 ```
 
 ### Step 4: Get Your API URL
-After deployment, Railway will give you a URL like:
+After deployment, click on the app and go to Settings. Under Networking, click Generate Domain.
+Railway will give you a URL like:
 ```
 https://your-app-name.railway.app
 ```
 
 Share this URL and the `WRAPPER_PASSWORD` with your API client.
-
-## Alternative Deployment Options
-
-### Vercel
-1. Import repository to Vercel
-2. Add the same environment variables
-3. Deploy
-
-### Heroku
-1. Create new Heroku app
-2. Connect to GitHub repository  
-3. Add environment variables in Settings → Config Vars
-4. Deploy
-
-### Docker (Advanced)
-```dockerfile
-FROM node:16-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install --production
-COPY server.js ./
-EXPOSE 3000
-CMD ["npm", "start"]
-```
 
 ## Testing Your Deployment
 
@@ -96,17 +73,3 @@ curl -X POST https://your-app-name.railway.app/v1/parts \
 1. **503 Error**: Check environment variables are set
 2. **403 Forbidden**: Check endpoint is in `ALLOWED_ENDPOINTS`  
 3. **401 Unauthorized**: Check username/password in your API calls
-
-### Logs:
-- Railway: View in dashboard → Deployments → Logs
-- Heroku: `heroku logs --tail -a your-app-name`
-- Vercel: View in dashboard → Functions → Logs
-
-## Cost Estimates
-
-- **Railway**: ~$5-20/month depending on usage
-- **Vercel**: Free tier available, then ~$20/month  
-- **Heroku**: ~$7/month (Hobby plan)
-
-## Support
-If you need help setting this up, contact [your support email].
